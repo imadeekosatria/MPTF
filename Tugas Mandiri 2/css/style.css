@@ -114,6 +114,7 @@
   
   .nav__item{
     margin-bottom: 2rem;
+    font-weight: 500;
   }
   
   .nav__close, .nav__link, .nav__logo, .nav__toggle{
