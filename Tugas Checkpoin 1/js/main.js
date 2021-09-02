@@ -57,6 +57,10 @@ sr.reveal('.work__img',{interval: 200});
 /*SCROLL CONTACT*/
 sr.reveal('.social',{interval: 200}); 
 
+/*SCROLL PENDIDIKAN*/
+sr.reveal('.pendidikan__data',{interval: 200}); 
+sr.reveal('.pendidikan__img',{delay: 600});
 
-
+/*SCROLL CERTIFICATE*/
+sr.reveal('.certificate__img', {interval: 200});
 

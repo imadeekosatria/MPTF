@@ -300,6 +300,47 @@ img{
   border-radius: .5rem;
 }
 
+/*===== PENDIDIKAN =====*/
+.pendidikan__container{
+  row-gap: 2rem;
+  text-align: center;
+}
+
+.pendidikan__data{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  font-weight: var(--font-semi);
+  padding: .5rem 1rem;
+  margin-bottom: var(--mb-4);
+  border-radius: .5rem;
+  box-shadow: 0 4px 25px rgba(14,36,49,.15);
+}
+.pendidikan__icon{
+  font-size: 2rem;
+  margin-right: var(--mb-2);
+  color: var(--first-color);
+}
+.pendidikan__names{
+  display: flex;
+  align-items: center;
+}
+.pendidikan__bar{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: var(--first-color);
+  height: .25rem;
+  border-radius: .5rem;
+  z-index: var(--z-back);
+  width: 100%;
+}
+
+.pendidikan__img{
+  border-radius: .5rem;
+}
+
 /* ===== CERTIFICATE =====*/
 .certificate__container{
   row-gap: 2rem;
@@ -320,6 +361,11 @@ img{
 
 
 /* ===== MEDIA QUERIES=====*/
+@media screen and (max-width: 767px){
+  .home__img{
+    display: none;
+  }
+}
 @media screen and (min-width: 768px){
   body{
     margin: 0;
@@ -366,7 +412,7 @@ img{
     bottom: 10vh;
   }
 
-  .about__container, .skills__container{
+  .about__container, .skills__container, .pendidikan__container{
     grid-template-columns: repeat(2,1fr);
     align-items: center;
     text-align: initial;
@@ -407,3 +453,8 @@ img{
   padding: 1rem;
 }
 
+
+.pend_log{
+  height: 20px;
+  padding-right: 20px;
+}
