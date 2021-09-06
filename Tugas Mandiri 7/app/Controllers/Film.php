@@ -15,6 +15,7 @@ class Film extends BaseController{
         $list = $this->film->findAll();
         
         $data = [
+            //'title' & 'film' adalah var yang digunakan di listfilm.php
             'title' => 'List Film',
             'film' => $list
         ];

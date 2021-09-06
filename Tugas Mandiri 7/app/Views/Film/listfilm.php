@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <title>List Film</title>
+    <title><?=$title?></title>
 </head>
 <body>
     <!--NAV-->
@@ -33,13 +33,18 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <?php $s=1;
+                        foreach($film as $data):
+                  ?>
                 <tr>
-                    <th class="text-center mx-3" scope="row">1</th>
-                    <td><img src="/image/FantasticBeast.jpg" alt="cover" width="100px"></th>
-                    <td class="text-center mx-3">Mark</td>
-                    <td class="text-center mx-3">Otto</td>
+                    <th class="text-center mx-3" scope="row"><?=$s++?></th>
+                    <td><img src="/image/<?=$data['cover']?>" alt="cover" width="100px"></th>
+                    <td class="text-center mx-3"><?=$data['judul']?></td>
+                    <td class="text-center mx-3"><?=$data['created_at']?></td>
+                    <td class="text-center mx-3"><?=$data['sutradara']?></td>
                     <td class="text-center mx-3"><button type="button" class="btn btn-outline-light mx-5">Tonton Sekarang</button></td>
                 </tr>
+                <?php endforeach?>
                 </tbody>
               </table>
         </div>
