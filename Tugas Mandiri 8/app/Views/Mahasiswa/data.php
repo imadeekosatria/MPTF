@@ -1,3 +1,70 @@
+<?php
+  //Untuk Tombol Simpan
+  if (isset($_POST['simpan'])) {
+    //Pengujian data di edit atau di simpan baru
+    if ($_GET['hal'] == "edit") {
+      //data akan di edit
+      $edit = mysqli_query($conn, "UPDATE `mhs` SET nim='$_POST[tnim]', nama='$_POST[tnama]',alamat='$_POST[talamat]' WHERE nim = '$_GET[id]'");
+      if ($edit) {//Jika Edit sukses
+        echo "<script>
+                  alert('Edit data sukses!'); 
+                  document.location='data base admin.php';
+              </script>";
+      }else{//Jika Edit Gagal
+        echo "<script>
+                  alert('Edit data GAGAL!! ^_^'); 
+                  document.location='data base admin.php';
+              </script>";
+      }
+    }else {
+      //data akan di simpan baru
+      $simpan = mysqli_query($conn, "INSERT INTO `mhs`(`nim`, `nama`, `alamat`) VALUES ('$_POST[tnim]','$_POST[tnama]','$_POST[talamat]')");
+      if ($simpan) {//Jika Simpan sukses
+          echo "<script>
+                  alert('Simpan data sukses!'); 
+                  document.location='data base admin.php';
+                </script>";
+      }else{//Jika simpan Gagal
+          echo "<script>
+                  alert('Simpan data GAGAL!! ^_^'); 
+                  document.location='data base admin.php';
+                  </script>";
+      }
+    }
+
+
+    
+  }
+
+  //Pengujian tombol edit di klik
+  if (isset($_GET['hal'])) {
+    //Pengujian jika edit data
+    if ($_GET['hal'] == "edit") {
+        //tampilkan data yang di edit
+        $tampil = mysqli_query($conn, "SELECT * FROM mhs WHERE nim = '$_GET[id]'");
+        $data = mysqli_fetch_array($tampil);
+        if ($data) {
+          //jika data ditemukan, maka data di tampung ke dalam variabel
+          $vnim = $data['nim'];
+          $vnama = $data['nama'];
+          $valamat = $data['alamat'];
+        }
+    }else if ($_GET['hal'] == "hapus"){
+        $hapus = mysqli_query($conn, "DELETE FROM `mhs` WHERE nim = '$_GET[id]'");
+        if ($hapus) {
+           echo "<script>
+                  alert('Hapus data sukses!'); 
+                  document.location='data base admin.php';
+                  </script>";
+        }else{
+          echo "<script>
+                  alert('Hapus data GAGAL!! ^_^'); 
+                  document.location='data base admin.php';
+                  </script>";
+      }
+    }
+  }
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -73,8 +140,8 @@
                         <td><?=$tampil['nama']?></td>
                         <td><?=$tampil['alamat']?></td>
                         <td>
-                          <button class="btn btn-outline-primary">Edit</button>
-                          <button class="btn btn-outline-dark">Hapus</button>
+                          <a href="data.php?hal=edit&id=<?=$tampil['nim']?>"><button class="btn btn-outline-primary">Edit</button></a>
+                          <a href="data.php?hal=hapus&id=<?=$tampil['nim']?>"><button class="btn btn-outline-dark">Hapus</button></a>
                         </td>
                     </tr>
                     <?php endforeach?>
