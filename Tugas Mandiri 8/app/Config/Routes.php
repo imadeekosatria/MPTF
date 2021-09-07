@@ -34,8 +34,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Mahasiswa::index');
 $routes->get('Mahasiswa/tambah', 'Mahasiswa::tambah');
-
-
+$routes->delete('Mahasiswa/delete/(:num)', 'Mahasiswa::delete/$1');
+$routes->get('Mahasiswa/edit/(:num)', 'Mahasiswa::edit/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

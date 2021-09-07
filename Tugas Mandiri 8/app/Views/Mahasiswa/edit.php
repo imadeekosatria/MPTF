@@ -29,23 +29,22 @@
                   Input Data 
                 </div>
                 <div class="card-body">
-                  <form action="/Mahasiswa/simpan" method="POST">
+                  <form action="/Mahasiswa/update/<?=$tampil['id']?>" method="POST">
                   <?= csrf_field(); ?>
                       <div class="form-group">
                         <label for="nim">NIM</label>
-                        <input type="text" onkeypress="return onlyNumberKey(event)" id="nim" name="nim" class="form-control" placeholder="Input NIM anda di sini" required>
+                        <input type="text" onkeypress="return onlyNumberKey(event)" value="<?=$tampil['nim']?>" id="nim" name="nim" class="form-control" placeholder="Input NIM anda di sini" required>
                       </div>
                       <div class="form-group">
                         <label for="nim">Nama</label>
-                        <input type="text" id="nama" name="nama" class="form-control" placeholder="Input Nama anda di sini" required>
+                        <input type="text" id="nama" name="nama" class="form-control" value="<?=$tampil['nama']?>" placeholder="Input Nama anda di sini" required>
                       </div>
                       <div class="form-group">
                         <label for="nim">Alamat</label>
-                        <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Input Alamat anda disini">
+                        <input type="text" name="alamat" id="alamat" class="form-control" value="<?=$tampil['alamat']?>" placeholder="Input Alamat anda disini">
                       </div>
                       <div class="my-3">
                         <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
-                        <button type="reset" class="btn btn-dark" name="reset">Reset</button>
                       </div>
                   </form>
                 </div>

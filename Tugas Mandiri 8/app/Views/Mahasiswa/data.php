@@ -46,8 +46,8 @@
                         <td><?=$tampil['nama']?></td>
                         <td><?=$tampil['alamat']?></td>
                         <td>
-                          <a href="data.php?hal=edit&id=<?=$tampil['nim']?>"><button class="btn btn-outline-primary">Edit</button></a>
-                          <a href="data.php?hal=hapus&id=<?=$tampil['nim']?>"><button class="btn btn-outline-dark">Hapus</button></a>
+                          <a href="/Mahasiswa/edit/<?=$tampil['id']?>"><button class="btn btn-outline-primary">Edit</button></a>
+                          <a href="/Mahasiswa/delete/<?=$tampil['id']?>"><button class="btn btn-outline-dark" onclick="return confirm('Apakah anda yakin ?')">Hapus</button></a>
                         </td>
                     </tr>
                     <?php endforeach?>
