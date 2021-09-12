@@ -511,6 +511,7 @@ img{
   margin-bottom: var(--mb-4);
   text-align: center;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .section-list::after{
@@ -530,10 +531,10 @@ img{
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2em;
-  padding-left: 2em;
-  padding-right: 2em;
-  margin-bottom: 2em;
+  margin-top: 3em;
+  padding-left: 3em;
+  padding-right: 4em;
+  margin-bottom: 4em;
 }
 
 .card-content {
@@ -542,7 +543,6 @@ img{
   background: #EEEAEA;
   box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
- 
 }
 
 .image-list{
@@ -557,6 +557,10 @@ img{
 .text-list{
   font-weight: bold;
   margin-left: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 197px;
+  white-space: nowrap;
 }
 
 .category-container{
@@ -691,7 +695,6 @@ img{
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   padding: 10px;
-  text-indent: .5em;
   outline: none;
   resize: none;
 }
@@ -746,6 +749,7 @@ img{
 
 .rating{
   width: 1.5em;
+  display: flex;
 }
 
 .button-action{

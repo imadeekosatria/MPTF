@@ -1,5 +1,20 @@
 <?= $this->extend('/Resep/header');?>
 <?= $this->section('content')?>
+        <!--===== HOME =====-->
+        <section class="home bd-grid" id="home">
+            <div class="home__data">
+                <h1 class="home__title">Lagi butuh resep makanan ataupun minuman ?
+                    <br> Yuk, cari di sini. Tempat berbagai macam resep makanan dan minuman.
+                    <br> Kamu juga bisa membagikan resep makanan ataupun minuman kamu  disini lho.
+                    
+                    <br> Tunggu apalagi. Yuk, cari disini.</h1>
+
+                <a href="/Resep/list" class="button">Mulai</a>
+            </div>
+            <div class="home__img">    
+                <img src="assets/img/girl-eating-japanese-food-with-chopstick.svg" alt="">
+            </div>
+        </section>
         <!--===== ABOUT =====-->
         <section class="about section " id="about">
             <h2 class="section-title">About</h2>

@@ -34,6 +34,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Resep::index');
 $routes->get('Resep/list', 'Resep::list');
+$routes->get('Resep/makanan', 'Resep::makanan');
+$routes->get('Resep/tambah', 'Resep::tambah');
+
 
 
 /*
