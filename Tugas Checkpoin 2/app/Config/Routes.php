@@ -36,6 +36,9 @@ $routes->get('/', 'Resep::index');
 $routes->get('Resep/list', 'Resep::list');
 $routes->get('Resep/makanan', 'Resep::makanan');
 $routes->get('Resep/tambah', 'Resep::tambah');
+$routes->delete('Resep/delete/(:num)/(:alpha)', 'Resep::delete/$1/$2');
+$routes->get('Mahasiswa/edit/(:num)', 'Mahasiswa::edit/$1');
+
 
 
 

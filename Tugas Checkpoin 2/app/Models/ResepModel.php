@@ -46,5 +46,10 @@ class ResepModel extends Model
         $query = $this->db->query("SELECT * FROM `resep` WHERE kategori='minuman' ORDER BY time DESC;");
         return $query;
     }
+
+    public function getData($id = false){
+        $query = $this->db->query("SELECT * FROM `resep` WHERE id = $id;");
+        return $query;
+    }
 }
     

@@ -21,8 +21,8 @@
                 </div>
             </div>
             <div class="button-action">
-                <a href="#"><img src="/assets/img/delete.svg" alt="delete"></a>
-                <a href="#"><img src="/assets/img/edit.svg" alt="edit"></a>
+                <a href="/Resep/delete/<?=$data['id']?>/<?=$data['kategori']?>" onclick="return confirm('Apakah anda yakin ingin menghapus <?=$data['judul']?> ?')"><img src="/assets/img/delete.svg" alt="delete"></a>
+                <a href="/Resep/edit/<?=$data['id']?>"><img src="/assets/img/edit.svg" alt="edit"></a>
             </div>
         </div>
         <?php endforeach;?>

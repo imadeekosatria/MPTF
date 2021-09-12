@@ -61,4 +61,24 @@ class Resep extends BaseController
         ];
         return view('Resep/edit', $data);
     }
+
+    public function delete($id, $kategori) {
+        if ($kategori == 'makanan') {
+            $this->list->delete($id);
+		    return redirect()->to('/Resep/makanan');
+        }elseif ($kategori == 'minuman') {
+            $this->list->delete($id);
+		    return redirect()->to('/Resep/minuman');
+        }
+	}
+
+    public function edit($id) {
+        $edit = $this->list->getData($id);
+        $data = [
+			'title' => 'Edit Resep',
+			'tampil' => $edit
+		];
+
+		return view('Resep/edit', $data);
+    }
 }
