@@ -113,7 +113,7 @@
                       }
                     ?>
                   </div>
-                  <a href="" class="button-card">Detail</a>
+                  <a href="<?=$result['judul']?>" class="button-card">Detail</a>
                 </div>
               </div> 
               <?php endforeach;?>

@@ -815,3 +815,24 @@ img{
   margin-top: 4em;
   margin-left: 8em;
 }
+
+.rating-edit{
+  margin-top: 1em;
+  width: 259px;
+  height: 52px;
+  background: #F5F5F5;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #347ED4;
+  outline: none;
+  margin-left: 3.5em;
+}
+
+.label-rating{
+  text-align: center;
+}
+
+.martop-rating{
+  margin-top: -1.5em;
+}

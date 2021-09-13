@@ -59,7 +59,7 @@ class Resep extends BaseController
         $data = [
             'title' => 'Tambah Data'
         ];
-        return view('Resep/edit', $data);
+        return view('Resep/tambah', $data);
     }
 
     public function delete($id, $kategori) {
@@ -80,5 +80,53 @@ class Resep extends BaseController
 		];
 
 		return view('Resep/edit', $data);
+    }
+
+    public function simpan(){
+		//ingat selalu gunakan var mhs untuk crud -> masuk ke model
+        $kategori =$this->request->getVar('kategori');
+		$this->list->save([
+			'judul' => $this->request->getVar('judul'),
+			'alat' => $this->request->getVar('alat'),
+			'petunjuk' => $this->request->getVar('petunjuk'),
+            'rating' => $this->request->getVar('rating'),
+            'cover' => 'undraw_under_construction_46pa.svg',
+            'kategori' => $kategori
+		]);
+        if ($kategori == 'makanan') {
+            return redirect()->to('/Resep/makanan');
+        }elseif ($kategori == 'minuman') {
+            return redirect()->to('/Resep/minuman');
+        }
+
+		
+	}
+
+    public function details($id){
+        $edit = $this->list->getData($id);
+        $data = [
+			'title' => 'Edit Resep',
+			'tampil' => $edit
+		];
+
+		return view('Resep/edit', $data);
+    }
+
+    public function update($id){
+        $kategori = $this->request->getVar('kategori');
+        $rating = $this->request->getVar('rating');
+        $this->list->save([
+            'id' => $id,
+            'judul' => $this->request->getVar('judul'),
+            'alat' => $this->request->getVar('alat'),
+            'petunjuk' => $this->request->getVar('petunjuk'),
+            'rating' => $rating,
+            'kategori' => $kategori
+        ]);
+        if ($kategori == 'makanan') {
+            return redirect()->to('Resep/makanan');
+        }elseif ($kategori == 'minuman') {
+            return redirect()->to('/Resep/minuman');
+        }
     }
 }
