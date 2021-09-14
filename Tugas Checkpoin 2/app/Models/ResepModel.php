@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ResepModel extends Model
 {
     protected $table = 'resep';
-    protected $allowedFields = ['judul', 'alat', 'petunjuk','kategori'];
+    protected $allowedFields = ['judul', 'alat', 'petunjuk','kategori', 'rating', 'cover'];
     protected $db;
     public function __construct(){
         $this->db = db_connect();

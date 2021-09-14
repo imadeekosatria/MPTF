@@ -90,8 +90,8 @@ class Resep extends BaseController
 			'alat' => $this->request->getVar('alat'),
 			'petunjuk' => $this->request->getVar('petunjuk'),
             'rating' => $this->request->getVar('rating'),
+            'kategori' => $kategori,
             'cover' => 'undraw_under_construction_46pa.svg',
-            'kategori' => $kategori
 		]);
         if ($kategori == 'makanan') {
             return redirect()->to('/Resep/makanan');
@@ -115,6 +115,7 @@ class Resep extends BaseController
     public function update($id){
         $kategori = $this->request->getVar('kategori');
         $rating = $this->request->getVar('rating');
+        $date = date('Y-m-d H:i:s');
         $this->list->save([
             'id' => $id,
             'judul' => $this->request->getVar('judul'),
