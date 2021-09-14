@@ -18,6 +18,14 @@
                                 <option value="minuman">Minuman</option>
                             </select>
                         </div>
+                        <div class="error-message error-center">
+                            <?php
+                                if ($validation->hasError('kategori')) {
+                                    echo '<i class="fas fa-exclamation-circle"></i>';
+                                }
+                            ?>
+                            <small><?= $validation->getError('kategori')?></small>
+                        </div>
                         <h5 class="label-rating">Rating</h5>
                         <div>
                                 
@@ -32,6 +40,15 @@
                     </div>
                     <div class="form-edit">
                         <input type="text" class="name" name="judul" placeholder="Nama Resep">
+                        
+                        <div class="error-message">
+                            <?php
+                                if ($validation->hasError('judul')) {
+                                    echo '<i class="fas fa-exclamation-circle"></i>';
+                                }
+                            ?>
+                            <small><?= $validation->getError('judul')?></small>
+                        </div>
                         <div class="form-textarea">
                             <label for="alat">Alat dan Bahan</label>
                             <textarea name="alat" cols="30" rows="10" class="text-fill"></textarea>

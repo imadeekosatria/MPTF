@@ -836,3 +836,16 @@ img{
 .martop-rating{
   margin-top: -1.5em;
 }
+
+.error-message{
+  margin-top: 5px;
+  display: flex;
+}
+
+.error-message i{
+  padding-right: .5em;
+}
+
+.error-center{
+  margin-inline: 3em;
+}

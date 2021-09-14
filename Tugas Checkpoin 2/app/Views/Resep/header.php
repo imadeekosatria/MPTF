@@ -7,6 +7,7 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/style.css">
     <link rel="shortcut icon" href="/assets/img/Baby Spoon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title><?=$title?></title>
 </head>
 <body>

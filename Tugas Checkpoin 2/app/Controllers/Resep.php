@@ -55,9 +55,10 @@ class Resep extends BaseController
         return view('Resep/list minuman', $data);
     }
 
-    public function tambah(){
+    public function tambah(){   
         $data = [
-            'title' => 'Tambah Data'
+            'title' => 'Tambah Data', 
+            'validation' => \Config\Services::validation()
         ];
         return view('Resep/tambah', $data);
     }
@@ -83,6 +84,14 @@ class Resep extends BaseController
     }
 
     public function simpan(){
+        //Validation
+        if (!$this->validate([
+            'judul' => 'required|is_unique[resep.judul]',
+            'kategori' => 'required'
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Resep/tambah')->withInput()->with('validation',$validation);
+        }
 		//ingat selalu gunakan var mhs untuk crud -> masuk ke model
         $kategori =$this->request->getVar('kategori');
 		$this->list->save([
