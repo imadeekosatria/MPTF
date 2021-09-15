@@ -86,7 +86,7 @@
                       }
                     ?>
                   </div>
-                  <a href="<?php echo $result['judul']?>" class="button-card">Detail</a>
+                  <a href="/Resep/details/<?php echo $result['id']?>" class="button-card">Detail</a>
                 </div>
               </div> 
               <?php endforeach;?>
@@ -113,7 +113,7 @@
                       }
                     ?>
                   </div>
-                  <a href="<?=$result['judul']?>" class="button-card">Detail</a>
+                  <a href="/Resep/details/<?=$result['id']?>" class="button-card">Detail</a>
                 </div>
               </div> 
               <?php endforeach;?>

@@ -87,7 +87,9 @@ class Resep extends BaseController
         //Validation
         if (!$this->validate([
             'judul' => 'required|is_unique[resep.judul]',
-            'kategori' => 'required'
+            'kategori' => 'required',
+            'alat' => 'required',
+            'petunjuk' => 'required'
         ])) {
             $validation = \Config\Services::validation();
             return redirect()->to('/Resep/tambah')->withInput()->with('validation',$validation);
@@ -112,13 +114,13 @@ class Resep extends BaseController
 	}
 
     public function details($id){
-        $edit = $this->list->getData($id);
+        $details = $this->list->getData($id);
         $data = [
 			'title' => 'Edit Resep',
-			'tampil' => $edit
+			'tampil' => $details
 		];
 
-		return view('Resep/edit', $data);
+		return view('Resep/detail', $data);
     }
 
     public function update($id){

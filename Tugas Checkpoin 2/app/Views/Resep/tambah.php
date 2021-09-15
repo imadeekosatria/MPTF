@@ -39,7 +39,7 @@
                             </div>
                     </div>
                     <div class="form-edit">
-                        <input type="text" class="name" name="judul" placeholder="Nama Resep">
+                        <input type="text" class="name" name="judul" value="<?= old('judul') ?>" placeholder="Nama Resep">
                         
                         <div class="error-message">
                             <?php
@@ -51,11 +51,27 @@
                         </div>
                         <div class="form-textarea">
                             <label for="alat">Alat dan Bahan</label>
-                            <textarea name="alat" cols="30" rows="10" class="text-fill"></textarea>
+                            <textarea name="alat" cols="30" rows="10" class="text-fill"><?= old('alat') ?></textarea>
+                        </div>
+                        <div class="error-message error-center">
+                            <?php
+                                if ($validation->hasError('kategori')) {
+                                    echo '<i class="fas fa-exclamation-circle"></i>';
+                                }
+                            ?>
+                            <small><?= $validation->getError('alat')?></small>
                         </div>
                         <div class="form-textarea">
                             <label for="petunjuk">Petunjuk</label>
-                            <textarea name="petunjuk" cols="30"  rows="10" class="text-fill"></textarea>
+                            <textarea name="petunjuk" cols="30"  rows="10" class="text-fill"><?= old('petunjuk') ?></textarea>
+                        </div>
+                        <div class="error-message error-center">
+                            <?php
+                                if ($validation->hasError('kategori')) {
+                                    echo '<i class="fas fa-exclamation-circle"></i>';
+                                }
+                            ?>
+                            <small><?= $validation->getError('petunjuk')?></small>
                         </div>
                         <button type="submit" class="simpan">Simpan</button>
                     </div>
