@@ -3,7 +3,12 @@
 @section('container')
     <main>
         <section>
-            <a class="tambah" href="">Tambah +</a>
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+            <a class="tambah" href="/tambah">Tambah +</a>
             <div class="main">
                 <table>
                     <tr class="header-table">
@@ -19,7 +24,11 @@
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td class="nama">
+                            @if($k->gender == 'Pria')
                             <img src="assets/image/school-boy.svg" alt="">
+                            @elseif($k->gender == 'Wanita')
+                            <img src="assets/image/school-girl.svg" alt="">
+                            @endif
                             <h5>{{$k->nama_guru}}</h5>
                         </td>
                         <td>{{$k->nip}}</td>

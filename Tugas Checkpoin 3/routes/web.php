@@ -17,3 +17,5 @@ use App\Http\Controllers\ListController;
 Route::get('/', [PagesController::class, 'home']);
 Route::get('/about', [PagesController::class, 'about']);
 Route::get('/guru', [ListController::class, 'guru']);
+Route::get('/tambah', [ListController::class, 'create']);
+Route::post('/data', [ListController::class, 'store']);
