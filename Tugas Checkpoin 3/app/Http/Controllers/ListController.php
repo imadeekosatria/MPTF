@@ -31,7 +31,7 @@ class ListController extends Controller
      */
     public function create()
     {
-        return view('/edit-tambah', [
+        return view('/tambah', [
             "title" => "Tambah Data"
         ]);
     }
@@ -78,34 +78,55 @@ class ListController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  App\Models\Guru
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Guru $guru)
     {
-        //
+        return view('/edit', compact('guru'), [
+            'title' => "Edit Data"
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  App\Models\Guru
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Guru $guru)
     {
-        //
+        $request->validate([
+            'nip' => 'required|size:5|unique:guru',
+            'nama' =>'required',
+            'mapel' => 'required',
+            'nomor' => 'required|size:14|unique:guru',
+            'alamat' =>'required',
+            'gender' => 'required'
+        ]);
+        Guru::where('id', $guru->id)
+        ->update([
+            'nama_guru' => $request->nama,
+            'nip' => $request->nip,
+            'mapel' => $request->mapel,
+            'no_hp' => $request->nomor,
+            'gender' => $request->gender,
+            'alamat' => $request->alamat
+        ]);
+
+        return redirect('/guru')->with('status','Data berhasil di ubah');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  App\Models\Guru
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Guru $guru)
     {
-        //
+        Guru::destroy($guru->id);
+        return redirect('/guru')->with('status', 'Data berhasil hapus');
     }
 }

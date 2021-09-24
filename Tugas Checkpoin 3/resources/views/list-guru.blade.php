@@ -34,8 +34,16 @@
                         <td>{{$k->nip}}</td>
                         <td>{{$k->mapel}}</td>
                         <td>{{$k->no_hp}}</td>
-                        <td><a class="button-action" href=""><img src="assets/image/edit.svg" alt=""></a></td>
-                        <td><a class="button-action" href=""><img src="assets/image/delete.svg" alt=""></a></td>
+                        <td>
+                            <a class="button-action" href="/edit/{{$k->id}}"><img src="assets/image/edit.svg" alt=""></a>
+                        </td>
+                        <td>
+                            <form action="/guru/{{$k->id}}" method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="button-action" onclick="return confirm('Anda yakin ingin menghapus {{$k->nama_guru}} ? 🙁')"><img src="assets/image/delete.svg" alt=""></button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </table>

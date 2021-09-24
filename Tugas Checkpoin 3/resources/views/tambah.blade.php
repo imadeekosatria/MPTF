@@ -5,7 +5,7 @@
           <section>
               <div class="edit">
                 <div class="picture">
-                    <img src="assets/image/school-girl.svg" alt="">
+                    <img src="/assets/image/school-girl.svg" alt="">
                 </div>
                 <div class="form">
                     <form action="/data" method="post">
