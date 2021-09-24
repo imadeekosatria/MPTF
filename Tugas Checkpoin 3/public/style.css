@@ -216,12 +216,12 @@ color: #fff;
 .nama{
     display: flex;
     width: 400px;
-    justify-content: space-around;
     align-items: center;
 }
 
 .nama img{
     width: 64px;
+    margin-right: 1em;
 }
 
 .main th, td{
@@ -323,3 +323,8 @@ color: #fff;
 .button-submit:hover{
     background: #5E5E5E;
 }
+
+.header-table{
+    background: #7198FF;
+}
+

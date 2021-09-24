@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ListController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +16,4 @@ use App\Http\Controllers\PagesController;
 
 Route::get('/', [PagesController::class, 'home']);
 Route::get('/about', [PagesController::class, 'about']);
-Route::get('/list', [PagesController::class, 'home']);
+Route::get('/guru', [ListController::class, 'guru']);

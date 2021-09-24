@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="assets/image/school.ico" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <title>Document</title>
+    <title>{{$title}}</title>
 </head>
 <body>
     <header>
@@ -30,15 +30,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  List
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="/list-guru">Daftar Guru</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="/list-siswa">Daftar Siswa</a></li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link" href="/guru">Daftar Guru</a>
               </li>
             </ul>
           </div>
