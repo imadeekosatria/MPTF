@@ -10,7 +10,7 @@
                 <div class="form">
                     <form action="/data" method="post">
                       @csrf()
-                        <input type="text" name="nama" class="form-nama @error('nama') is-invalid @enderror" value="{{ old('title') }}" placeholder="Nama">
+                        <input type="text" name="nama" class="form-nama @error('nama') is-invalid @enderror" value="{{ old('nama') }}" placeholder="Nama">
                         @error('nama')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -34,7 +34,7 @@
                         @error('gender')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
-                        <textarea name="alamat" class="alamat" cols="30" value="{{ old('gender') }}" rows="10" placeholder="Alamat"></textarea>
+                        <textarea name="alamat" class="alamat" cols="30" value="{{ old('alamat') }}" rows="10" placeholder="Alamat"></textarea>
                         @error('alamat')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
