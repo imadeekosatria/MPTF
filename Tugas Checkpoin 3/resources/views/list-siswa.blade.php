@@ -8,19 +8,18 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <a class="tambah" href="/tambah">Tambah +</a>
+            <a class="tambah-siswa" href="/tambah-siswa">Tambah +</a>
             <div class="main">
                 <table>
                     <tr class="header-table">
                         <th>No</th>
                         <th>Nama</th>
-                        <th>NIP</th>
-                        <th>MAPEL</th>
+                        <th>Kelas</th>
                         <th>No. HP</th>
                         <th></th>
                         <th></th>
                     </tr>
-                    @foreach($guru as $k)
+                    @foreach($siswa as $k)
                     <tr>
                         <td class="reveal">{{$loop->iteration}}</td>
                         <td class="nama reveal">
@@ -29,19 +28,18 @@
                             @elseif($k->gender == 'Wanita')
                             <img src="assets/image/school-girl.svg" alt="">
                             @endif
-                            <h5>{{$k->nama_guru}}</h5>
+                            <h5>{{$k->nama_siswa}}</h5>
                         </td>
-                        <td class="reveal">{{$k->nip}}</td>
-                        <td class="reveal">{{$k->mapel}}</td>
+                        <td class="reveal">{{$k->kelas}}</td>
                         <td class="reveal">{{$k->no_hp}}</td>
                         <td class="reveal">
-                            <a class="button-action" href="/edit/{{$k->id}}"><img src="assets/image/edit.svg" alt=""></a>
+                            <a class="button-action" href="/edit-siswa/{{$k->id}}"><img src="assets/image/edit.svg" alt=""></a>
                         </td>
                         <td class="reveal">
-                            <form action="/guru/{{$k->id}}" method="post" class="d-inline">
+                            <form action="/siswa/{{$k->id}}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button class="button-action" onclick="return confirm('Anda yakin ingin menghapus {{$k->nama_guru}} ? 🙁')"><img src="assets/image/delete.svg" alt=""></button>
+                                <button class="button-action" onclick="return confirm('Anda yakin ingin menghapus {{$k->nama_siswa}} ? 🙁')"><img src="assets/image/delete.svg" alt=""></button>
                             </form>
                         </td>
                     </tr>

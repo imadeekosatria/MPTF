@@ -170,4 +170,7 @@
         <h5>SEKOLAH <span>&copy;</span> 2021</h5>
       </div>
     </footer>
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/main.js"></script>
 @endsection

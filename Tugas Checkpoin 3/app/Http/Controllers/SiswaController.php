@@ -4,25 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Guru;
+use App\Models\Siswa;
 
-class ListController extends Controller
+class SiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function guru()
+    public function siswa()
     {
-        $guru = DB::table('guru')->get();
+        $siswa = DB::table('siswa')->get();
 
-        return view('list-guru',[
-            "guru" => $guru,
-            "title" => "Daftar Guru"
+        return view('list-siswa',[
+            "siswa" => $siswa,
+            "title" => "Daftar Siswa"
         ]);
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -31,7 +30,7 @@ class ListController extends Controller
      */
     public function create()
     {
-        return view('/tambah', [
+        return view('/tambah-siswa', [
             "title" => "Tambah Data"
         ]);
     }
@@ -45,23 +44,21 @@ class ListController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nip' => 'required|size:5|unique:guru',
             'nama' =>'required',
-            'mapel' => 'required',
-            'nomor' => 'required',
+            'kelas' => 'required',
+            'no_hp' => 'required|unique:siswa',
             'alamat' =>'required',
             'gender' => 'required'
         ]);
-        $guru = new Guru;
-        $guru->nama_guru = $request->nama;
-        $guru->nip = $request->nip;
-        $guru->mapel = $request->mapel;
-        $guru->no_hp = $request->nomor;
-        $guru->gender = $request->gender;
-        $guru->alamat = $request->alamat;
+        $siswa = new Siswa;
+        $siswa->nama_siswa = $request->nama;
+        $siswa->kelas = $request->kelas;
+        $siswa->no_hp = $request->no_hp;
+        $siswa->gender = $request->gender;
+        $siswa->alamat = $request->alamat;
 
-        $guru->save();
-        return redirect('/guru')->with('status', 'Data berhasil ditambah');
+        $siswa->save();
+        return redirect('/siswa')->with('status', 'Data berhasil ditambah');
     }
 
     /**
@@ -78,13 +75,13 @@ class ListController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\Guru
+     * @param  App\Models\Siswa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Guru $guru)
+    public function edit(Siswa $siswa)
     {
-        return view('/edit', compact('guru'), [
-            'title' => "Edit Data Guru"
+        return view('/edit-siswa', compact('siswa'), [
+            'title' => "Edit Data Siswa"
         ]);
     }
 
@@ -92,41 +89,39 @@ class ListController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  App\Models\Guru
+     * @param  App\Models\Siswa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Guru $guru)
+    public function update(Request $request, Siswa $siswa)
     {
         $request->validate([
-            'nip' => 'required|size:5',
             'nama' =>'required',
-            'mapel' => 'required',
+            'kelas' => 'required',
             'nomor' => 'required',
             'alamat' =>'required',
             'gender' => 'required'
         ]);
-        Guru::where('id', $guru->id)
+        Siswa::where('id', $siswa->id)
         ->update([
-            'nama_guru' => $request->nama,
-            'nip' => $request->nip,
-            'mapel' => $request->mapel,
+            'nama_siswa' => $request->nama,
+            'kelas' => $request->kelas,
             'no_hp' => $request->nomor,
             'gender' => $request->gender,
             'alamat' => $request->alamat
         ]);
 
-        return redirect('/guru')->with('status','Data berhasil di ubah');
+        return redirect('/siswa')->with('status','Data berhasil di ubah');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  App\Models\Guru
+     * @param  App\Models\Siswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Guru $guru)
+    public function destroy(Siswa $siswa)
     {
-        Guru::destroy($guru->id);
-        return redirect('/guru')->with('status', 'Data berhasil hapus');
+        Siswa::destroy($siswa->id);
+        return redirect('/siswa')->with('status', 'Data berhasil hapus');
     }
 }

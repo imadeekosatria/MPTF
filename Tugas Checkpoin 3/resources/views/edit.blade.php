@@ -5,10 +5,15 @@
           <section>
               <div class="edit">
                 <div class="picture">
-                    <img src="/assets/image/school-girl.svg" alt="">
+                    @if($guru->gender == 'Pria')
+                        <img src="/assets/image/school-boy.svg" alt="">
+                    @elseif($guru->gender == 'Wanita')
+                        <img src="/assets/image/school-girl.svg" alt="">
+                    @endif
                 </div>
                 <div class="form">
-                    <form action="/data" method="post">
+                    <form action="/update/{{$guru->id}}" method="post">
+                        @method('patch')
                       @csrf()
                         <input type="text" name="nama" class="form-nama @error('nama') is-invalid @enderror" value="{{ $guru->nama_guru }}" placeholder="Nama">
                         @error('nama')

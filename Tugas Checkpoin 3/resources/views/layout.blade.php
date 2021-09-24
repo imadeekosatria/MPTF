@@ -30,8 +30,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/guru">Daftar Guru</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">List</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/guru">Daftar Guru</a></li>
+                  <li><a class="dropdown-item" href="/siswa">Daftar Siswa</a></li>
+                </ul>
               </li>
             </ul>
           </div>
